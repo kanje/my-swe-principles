@@ -1,6 +1,6 @@
 # My Software Engineering Principles
 
-These is my personal view on how to do software development.
+This is my personal view on how to do software development.
 
 I have created this page to express what I expect from software projects, how
 I approach software engineering and let others know what to expect from me.
@@ -59,8 +59,8 @@ Use tools and technologies as intended.
 - One way to define "as intended" is something like "how the software industry
   usually does it". For example, [`.clang-format`][clang-fmt] configuration file
   is usually put in a repository root.
-- Do not invent non-standard ways to do common tasks. This will allow you (and,
-  more importantly, your colleagues) to search for help online. It will make
-  onboarding easier. There will be existing tooling to support you.
+- Do not invent non-standard ways to do common tasks.
+- Constrain the [NIH syndrome][nih].
 
 [clang-fmt]: https://clang.llvm.org/docs/ClangFormat.html
+[nih]: https://en.wikipedia.org/wiki/Not_invented_here
