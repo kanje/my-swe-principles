@@ -45,12 +45,12 @@ Use [Semantic Versioning](https://semver.org/). Especially for libraries.
 Write standard compliant code.
 
 - Disable compiler extensions. We want to have portable code.
-- Enable as much warnings as possible, and thread them as errors.
-  Use a compiler to help you.
+- Enable as much warnings as possible, and treat them as errors.
+  Let a compiler help you.
 - Compile code with as many compilers as you can. Different compilers generate
-  different diagnostics and let you find more issues in your code.
+  different diagnostics and let you find more issues in the code.
 - Compile code with different optimisation settings. Make sure the code works
-  the same in release, debug etc. builds.
+  the same way in release, debug etc. builds.
 
 ## Intended Usage
 
