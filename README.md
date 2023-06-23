@@ -86,3 +86,35 @@ Everybody makes mistakes. Catch them early.
 
 [clang-tidy]: https://clang.llvm.org/extra/clang-tidy
 [sanit]: https://github.com/google/sanitizers
+
+## Interface Design
+
+Program towards an interface, not an implementation.
+
+- Produce modular designs with clear module boundaries and interfaces. There
+  must be no other way to interact with a module but via its interface.
+- Define a module contract/interface before starting its implementation. A
+  contract is a set of rules and agreements which define what does the module
+  do, what does it expect from its users and what does it promise to deliver. An
+  interface (API) is a part of a contract and defines technical details on how
+  to interact with a module.
+- Document contracts/interfaces. Use things like [Doxygen][doxygen] and
+  [PlantUML][plantuml]. Make it look nice and easy to understand. Include
+  examples. There must be no need to look into an implementation to understand
+  how to use APIs.
+- If the observed behaviour (the implementation) does not match the promised one
+  (the contract), then the implementation is wrong and must be fixed.
+- As a client rely only on what is promised by the contract. Never rely on any
+  particular unspecified behaviour. It will change and will break your code.
+- Changes to public APIs affect [Versioning](#versioning).
+- Make APIs hard to use wrong. Be explicit. Express value semantics with value
+  types, e.g. [`std::chrono::seconds`][cpp-chrono] instead of `int`. Express
+  ownership with [RAII][cpp-raii] and [smart pointers][cpp-ptr].
+- Test only public APIs and observable behaviour. Test that the implementation
+  fulfils the contract, not implementation's internals.
+
+[doxygen]: https://www.doxygen.nl
+[plantuml]: https://plantuml.com
+[cpp-chrono]: https://en.cppreference.com/w/cpp/chrono/duration
+[cpp-raii]: https://en.cppreference.com/w/cpp/language/raii
+[cpp-ptr]: https://en.cppreference.com/w/cpp/memory
