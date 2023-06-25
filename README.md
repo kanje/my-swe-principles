@@ -63,7 +63,7 @@ Use tools and technologies as intended.
   is usually put in a repository root.
 - Do not invent non-standard ways to do common tasks.
 - Constrain the [NIH syndrome][nih].
-- Tools must be convenient and easy to use.
+- Tools must be convenient and easy to use. If not, fix them or find new ones.
 - Know your tools.
 
 [clang-fmt]: https://clang.llvm.org/docs/ClangFormat.html
@@ -118,3 +118,33 @@ Program towards an interface, not an implementation.
 [cpp-chrono]: https://en.cppreference.com/w/cpp/chrono/duration
 [cpp-raii]: https://en.cppreference.com/w/cpp/language/raii
 [cpp-ptr]: https://en.cppreference.com/w/cpp/memory
+
+## Software Design and Architecture
+
+Prioritise maintainability, testability, traceability and extensibility. The
+code is read, analysed and modified much more often than written from scratch.
+
+- Mistakes in software architecture are the hardest and most costly ones to fix.
+- There is no one-size-fits-all architecture. Each approach has its trade-offs.
+  Choose wisely. Make an informed decision.
+- Make evolutionary architectures with low coupling and high cohesion.
+- Postpone important (potentially irreversible) decisions to the latest point
+  possible, when there is more information to make a better choice. Or make such
+  things reversible by e.g. abstracting them away behind an interface.
+- Set up a theory of operation. Describe how a software system should work, what
+  are the invariants, what is the data flow etc.
+- All abstractions are wrong. Some of them are useful. Make sure you have the
+  useful ones and that they do not leak much.
+- Use proper data structures and algorithms. This will make the system perform
+  well. Do not prematurely (micro-) optimise for performance. Readability is
+  more important.
+- Do a prototype to show a feasibility of an architecture. Then throw it away.
+  Never promote a prototype to the final solution.
+- Separate concerns. Never mix business logic with UI, data access layer etc.
+- Identify and extract reusable (possibly, domain specific) code to libraries.
+  Make it building blocks your business logic is based upon. Let different
+  development teams concentrate on adding business value, not reimplementing the
+  common things.
+- Fail fast. Do not let the system run in an inconsistent state.
+- Single-threaded event loop based applications usually work well and are easy
+  to reason about.
