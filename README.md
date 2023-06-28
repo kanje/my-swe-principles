@@ -1,6 +1,6 @@
 # My Software Engineering Principles
 
-_NOTE: Work in progress._
+_Version 1.0.0._
 
 This is my personal view on how to do software development.
 
@@ -23,8 +23,8 @@ Everything has its limits. So do these principles.
 
 The code quality tends to deteriorate. Counteract!
 
-- Do small but constant improvements, like updating documentation or addressing
-  a compilation warning.
+- Do small but constant improvements, like updating documentation, addressing
+  a compilation warning, or making code slightly more efficient.
 - Keep the code clean. Do not let the [Broken Windows Theory][bwt] to kick in.
 
 [bwt]: https://en.wikipedia.org/wiki/Broken_windows_theory
@@ -126,25 +126,39 @@ code is read, analysed and modified much more often than written from scratch.
 
 - Mistakes in software architecture are the hardest and most costly ones to fix.
 - There is no one-size-fits-all architecture. Each approach has its trade-offs.
-  Choose wisely. Make an informed decision.
 - Make evolutionary architectures with low coupling and high cohesion.
 - Postpone important (potentially irreversible) decisions to the latest point
   possible, when there is more information to make a better choice. Or make such
   things reversible by e.g. abstracting them away behind an interface.
 - Set up a theory of operation. Describe how a software system should work, what
   are the invariants, what is the data flow etc.
-- All abstractions are wrong. Some of them are useful. Make sure you have the
-  useful ones and that they do not leak much.
-- Use proper data structures and algorithms. This will make the system perform
-  well. Do not prematurely (micro-) optimise for performance. Readability is
-  more important.
 - Do a prototype to show a feasibility of an architecture. Then throw it away.
   Never promote a prototype to the final solution.
-- Separate concerns. Never mix business logic with UI, data access layer etc.
-- Identify and extract reusable (possibly, domain specific) code to libraries.
-  Make it building blocks your business logic is based upon. Let different
-  development teams concentrate on adding business value, not reimplementing the
-  common things.
+- Separate concerns. Never mix business logic, UI, data access layer etc.
 - Fail fast. Do not let the system run in an inconsistent state.
 - Single-threaded event loop based applications usually work well and are easy
   to reason about.
+
+## Reusable Code
+
+Identify and extract reusable code to libraries.
+
+- Let different development teams concentrate on adding business value, not
+  reimplementing the common things over and over again.
+- Provide domain types -- small, robust and tested vocabulary types to base the
+  the business logic upon.
+- Standardise and reuse infrastructure code like IPC, monitoring or application
+  lifecycle management.
+- Support architecture decisions with various primitives (building blocks). It
+  should be easy for developers to stay in line with the defined architecture.
+
+
+## Performance
+
+Do not prematurely (micro-) optimise for performance.
+
+- Functionality and code readability are usually more important.
+- Use proper data structures and algorithms. This is what affects the system
+  performance the most.
+- Do not do obviously inefficient things, e.g. do not do unnecessary copies.
+- Optimise based on profiling results.
