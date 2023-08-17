@@ -1,6 +1,6 @@
 # My Software Engineering Principles
 
-_Version 1.0.0._
+_Version 1.1.0._
 
 This is my personal view on how to do software development.
 
@@ -98,26 +98,36 @@ Program towards an interface, not an implementation.
   do, what does it expect from its users and what does it promise to deliver. An
   interface (API) is a part of a contract and defines technical details on how
   to interact with a module.
-- Document contracts/interfaces. Use things like [Doxygen][doxygen] and
-  [PlantUML][plantuml]. Make it look nice and easy to understand. Include
-  examples. There must be no need to look into an implementation to understand
-  how to use APIs.
 - If the observed behaviour (the implementation) does not match the promised one
   (the contract), then the implementation is wrong and must be fixed.
-- As a client rely only on what is promised by the contract. Never rely on any
+- As a client, rely only on what is promised by the contract. Never rely on any
   particular unspecified behaviour. It will change and will break your code.
 - Changes to public APIs affect [Versioning](#versioning).
 - Make APIs hard to use wrong. Be explicit. Express value semantics with value
   types, e.g. [`std::chrono::seconds`][cpp-chrono] instead of `int`. Express
   ownership with [RAII][cpp-raii] and [smart pointers][cpp-ptr].
+- Follow the principle of least surprises.
 - Test only public APIs and observable behaviour. Test that the implementation
   fulfils the contract, not implementation's internals.
 
-[doxygen]: https://www.doxygen.nl
-[plantuml]: https://plantuml.com
 [cpp-chrono]: https://en.cppreference.com/w/cpp/chrono/duration
 [cpp-raii]: https://en.cppreference.com/w/cpp/language/raii
 [cpp-ptr]: https://en.cppreference.com/w/cpp/memory
+
+## Developer Documentation
+
+Help fellow developers. Tell how to use your stuff.
+
+- Always document public APIs.
+- Make it look nice and easy to understand. Include examples.
+- There must be no need to look into an implementation to understand how to use
+  APIs.
+- Use things like [Doxygen][doxygen] and [PlantUML][plantuml].
+- Bad documentation repeats what the code says. Good documentation complements
+  the code. It describes "why?" not "what?" and provides the context to the code.
+
+[doxygen]: https://www.doxygen.nl
+[plantuml]: https://plantuml.com
 
 ## Software Design and Architecture
 
@@ -138,6 +148,20 @@ code is read, analysed and modified much more often than written from scratch.
 - Fail fast. Do not let the system run in an inconsistent state.
 - Single-threaded event loop based applications usually work well and are easy
   to reason about.
+
+## Development Process
+
+Be agile.
+
+- Kanban is usually better than Scrum. Waterfall is rarely the answer.
+- Planning and designing everything upfront is dumb. Not planning and designing
+  anything upfront is even dumber.
+- Do not overspecify user stories. Often there is no need for more than a header
+  and a couple of sentences to point into the desired direction.
+- Engage developers into product ownership and decision making. They should have
+  enough context to be able to derive what needs to be done, suggest ideas,
+  discuss alternatives, and come up with a solution.
+- Developers must test the code they are writing.
 
 ## Reusable Code
 
