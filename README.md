@@ -1,6 +1,6 @@
 # My Software Engineering Principles
 
-_Version 1.1.0._
+_Version 1.2.0._
 
 This is my personal view on how to do software development.
 
@@ -163,10 +163,14 @@ Be agile.
   discuss alternatives, and come up with a solution.
 - Developers must test the code they are writing.
 
-## Reusable Code
+## Common Solution to Common Problems
 
-Identify and extract reusable code to libraries.
+It is in everyone's best interest to solve a problem well once and then let
+everyone adopt the solution.
 
+- Establish common abstractions, conventions and vocabulary.
+- Provide reusable documentation and training materials.
+- Identify and extract reusable code to libraries.
 - Let different development teams concentrate on adding business value, not
   reimplementing the common things over and over again.
 - Provide domain types -- small, robust and tested vocabulary types to base the
