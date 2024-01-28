@@ -1,6 +1,6 @@
 # My Software Engineering Principles
 
-_Version 1.2.0._
+_Version 1.2.1._
 
 This is my personal view on how to do software development.
 
@@ -169,7 +169,7 @@ It is in everyone's best interest to solve a problem well once and then let
 everyone adopt the solution.
 
 - Establish common abstractions, conventions and vocabulary.
-- Provide reusable documentation and training materials.
+- Invest in reusable documentation and training materials.
 - Identify and extract reusable code to libraries.
 - Let different development teams concentrate on adding business value, not
   reimplementing the common things over and over again.
